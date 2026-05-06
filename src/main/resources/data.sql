@@ -18,11 +18,11 @@ INSERT INTO objetos (id, mapbox_json, nombre_objeto, descripcion, imagen, peligr
 ALTER TABLE objetos ALTER COLUMN id RESTART WITH (SELECT COALESCE(MAX(id), 0) + 1 FROM objetos);
 
 
-INSERT INTO usuarios (id, username, password, email,  email_sec, tel, fecha_nac, foto, administrador) VALUES
-(1,'admin',  '$2a$10$fzcGgF.8xODz7ptkmZC.OeX1Kj5GDI//FhW2sG0vlshW6ZAKJky0e', 'admin@balmis.com','admin1@balmis.com',  '100000000', '1990-01-01',  'admin.jpg',  TRUE), -- password: 5678
-(2,'user',  '$2a$10$ayw3FCBIkupFt5n9lrmJQe9XZMJhZiNCjaoOkXo/Ba0KZgymO01ce', 'user@balmis.com','us@balmis.com',  '200000000', '1991-01-01',  'user.jpg',  FALSE), -- password: 1234
-(3,'user1',  '$2a$10$ayw3FCBIkupFt5n9lrmJQe9XZMJhZiNCjaoOkXo/Ba0KZgymO01ce', 'user1@balmis.com','us1@balmis.com',  '200000000', '1991-01-01',  'user.jpg',  FALSE), -- password: 1234
-(4,'user2',  '$2a$10$ayw3FCBIkupFt5n9lrmJQe9XZMJhZiNCjaoOkXo/Ba0KZgymO01ce', 'user2@balmis.com','us2@balmis.com',  '200000000', '1991-01-01',  'user.jpg',  FALSE); -- password: 1234
+INSERT INTO usuarios (id, username, password, email,  email_sec, tel, fecha_nac, administrador) VALUES
+(1,'admin',  '$2a$10$fzcGgF.8xODz7ptkmZC.OeX1Kj5GDI//FhW2sG0vlshW6ZAKJky0e', 'admin@balmis.com','admin1@balmis.com',  '100000000', '1990-01-01',  TRUE), -- password: 5678
+(2,'user',  '$2a$10$ayw3FCBIkupFt5n9lrmJQe9XZMJhZiNCjaoOkXo/Ba0KZgymO01ce', 'user@balmis.com','us@balmis.com',  '200000000', '1991-01-01',  FALSE), -- password: 1234
+(3,'user1',  '$2a$10$ayw3FCBIkupFt5n9lrmJQe9XZMJhZiNCjaoOkXo/Ba0KZgymO01ce', 'user1@balmis.com','us1@balmis.com',  '200000000', '1991-01-01',  FALSE), -- password: 1234
+(4,'user2',  '$2a$10$ayw3FCBIkupFt5n9lrmJQe9XZMJhZiNCjaoOkXo/Ba0KZgymO01ce', 'user2@balmis.com','us2@balmis.com',  '200000000', '1991-01-01',  FALSE); -- password: 1234
 
 -- '$2a$10$n1/e13.wUb0ESrCxjZUNsunO4h/Go9QH1/25co1Scd6DQx1O51/KC' ==>  password: password
 -- '$2a$10$APUnUaXbTtPf8AjQqzeHAOTzTw.wFUimrqrSn33dKD6hrO4JR.jcu' ==> password: admin

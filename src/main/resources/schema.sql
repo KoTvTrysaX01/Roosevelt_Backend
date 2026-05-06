@@ -37,6 +37,17 @@ CREATE TABLE IF NOT EXISTS usuarios(
     administrador   BOOLEAN NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS ajustes(
+    id                      INT AUTO_INCREMENT PRIMARY KEY,
+    tema                    VARCHAR(15) NOT NULL,
+    idioma                  VARCHAR(15) NOT NULL,
+    foto                    VARCHAR(200) NOT NULL,
+    recibir_noticias        BOOLEAN NOT NULL,
+    recibir_notificaciones  BOOLEAN NOT NULL,  
+    id_usuario              INT,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE SET NULL
+);
+
 CREATE TABLE IF NOT EXISTS rutas(
     id          INT AUTO_INCREMENT PRIMARY KEY,
     mapbox_json VARCHAR(300) NOT NULL,
@@ -48,6 +59,16 @@ CREATE TABLE IF NOT EXISTS rutas(
     id_usuario_autor INT,
     FOREIGN KEY (id_zona) REFERENCES zonas(id) ON DELETE SET NULL,
     FOREIGN KEY (id_usuario_autor) REFERENCES usuarios(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS solicitudes(
+    id_usuario      INT,
+    id_ruta         INT,
+    fecha_pub       DATE,
+    aprobada        BOOLEAN,
+    PRIMARY KEY (id_usuario, id_ruta),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE SET NULL,
+    FOREIGN KEY (id_ruta) REFERENCES rutas(id) ON DELETE SET NULL  
 );
 
 CREATE TABLE IF NOT EXISTS comentarios(

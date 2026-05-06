@@ -1,14 +1,9 @@
 package com.roosevelt.backend.controller;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.roosevelt.backend.model.Usuario;
 import com.roosevelt.backend.service.UsuarioService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 @Tag(name = "Usuarios", description = "API para gestión de usuarios")
 @RestController
@@ -137,7 +139,6 @@ public class UsuarioController {
                     || usuario.getEmail_sec() == null || usuario.getEmail_sec().trim().isEmpty()
                     || usuario.getTel() == null || usuario.getTel().trim().isEmpty()
                     || usuario.getFechaNac() == null
-                    || usuario.getFoto() == null || usuario.getFoto().trim().isEmpty()
                     ) {
 
                 Map<String, Object> map = new HashMap<>();

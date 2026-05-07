@@ -65,3 +65,14 @@ INSERT INTO lineas_objetos (id_ruta, id_objeto) VALUES (3, 4);
 INSERT INTO lineas_rutas_fav (id_usuario, id_ruta) VALUES (1, 1);
 INSERT INTO lineas_rutas_fav (id_usuario, id_ruta) VALUES (2, 1);
 INSERT INTO lineas_rutas_fav (id_usuario, id_ruta) VALUES (1, 2);
+
+
+INSERT INTO ajustes (id, tema, idioma, foto, recibir_noticias, recibir_notificaciones, id_usuario) VALUES (1, 'dark', 'english', './example.jpg', true, false, 1);
+INSERT INTO ajustes (id, tema, idioma, foto, recibir_noticias, recibir_notificaciones, id_usuario) VALUES (2, 'light', 'spanish', './example.jpg', false, false, 2);
+INSERT INTO ajustes (id, tema, idioma, foto, recibir_noticias, recibir_notificaciones, id_usuario) VALUES (3, 'dark', 'english', './example.jpg', true, true, 3);
+ALTER TABLE ajustes ALTER COLUMN id RESTART WITH (SELECT COALESCE(MAX(id), 0) + 1 FROM ajustes);
+
+
+INSERT INTO solicitudes (id_usuario, id_ruta, fecha_pub, aprobada) VALUES (1, 1, '1991-01-01', null);
+INSERT INTO solicitudes (id_usuario, id_ruta, fecha_pub, aprobada) VALUES (1, 2, '1991-01-01', null);
+INSERT INTO solicitudes (id_usuario, id_ruta, fecha_pub, aprobada) VALUES (1, 3, '1991-01-01', null);

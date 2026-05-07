@@ -31,7 +31,12 @@ public class SolicitudService {
     }
 
     @Transactional(readOnly = true)
-    public List<Solicitud> findByIdioma(boolean aprobada){
+    public List<Solicitud> findByNuevas(){
+        return solicitudRepository.findSqlByNuevos();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Solicitud> findByAprobadas(boolean aprobada){
         return solicitudRepository.findSqlByAprobadas(aprobada);
     }
 

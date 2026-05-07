@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.roosevelt.backend.model.Solicitud;
+import com.roosevelt.backend.model.SolicitudId;
 
-public interface SolicitudRepository extends JpaRepository<Solicitud, Integer> {
+public interface SolicitudRepository extends JpaRepository<Solicitud, SolicitudId> {
     
     // Buscar - Todos
     @Query(value = "SELECT * FROM solicitudes", nativeQuery = true)
@@ -23,12 +24,8 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Integer> {
     List<Solicitud> findSqlByNuevos();
 
     // Buscar - Aprobadas
-    @Query(value = "SELECT * FROM solicitudes WHERE aprobada = true", nativeQuery = true)
-    List<Solicitud> findSqlByAprobadas();
-
-        // Buscar - Rechazadas
-    @Query(value = "SELECT * FROM solicitudes WHERE aprobada = false", nativeQuery = true)
-    List<Solicitud> findSqlByRechazadas();
+    @Query(value = "SELECT * FROM solicitudes WHERE aprobada = :aprobada", nativeQuery = true)
+    List<Solicitud> findSqlByAprobadas(@Param("aprobada") boolean aprobada);
 
     // Buscar - Contar todos
     @Query(value = "SELECT COUNT(*) as cantidad FROM solicitudes", nativeQuery = true)

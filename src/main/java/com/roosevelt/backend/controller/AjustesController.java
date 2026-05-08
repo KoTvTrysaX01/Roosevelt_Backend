@@ -86,7 +86,7 @@ public class AjustesController {
             @ApiResponse(responseCode = "200", description = "ajustes obtenidos con éxito")
     })
     // ***************************************************************************
-    @GetMapping("/ruta/{idioma}")
+    @GetMapping("/idioma/{idioma}")
     public ResponseEntity<List<Ajustes>> showAjustesIdioma(@PathVariable String idioma) {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -101,7 +101,7 @@ public class AjustesController {
             @ApiResponse(responseCode = "200", description = "ajustes obtenidos con éxito")
     })
     // ***************************************************************************
-    @GetMapping("/ruta/{rec_noticias}")
+    @GetMapping("/noticias/{rec_noticias}")
     public ResponseEntity<List<Ajustes>> showAjustesRecNoticias(@PathVariable boolean rec_noticias) {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -117,11 +117,11 @@ public class AjustesController {
             @ApiResponse(responseCode = "200", description = "ajustes obtenidos con éxito")
     })
     // ***************************************************************************
-    @GetMapping("/ruta/{rec_notificaciones}")
+    @GetMapping("/notificaciones/{rec_notificaciones}")
     public ResponseEntity<List<Ajustes>> showAjustesRecNotificaciones(@PathVariable boolean rec_notificaciones) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(ajustesService.findByRecNoticias(rec_notificaciones));
+                .body(ajustesService.findByRecNotificaciones(rec_notificaciones));
     }
 
     // http://localhost:8080/roosevelt/api/ajustess/count

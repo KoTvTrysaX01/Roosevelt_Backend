@@ -20,7 +20,7 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, SolicitudI
     Solicitud findSqlByIdSolicitud(@Param("id_usuario") int id_usuario, @Param("id_ruta") int id_ruta);
 
     // Buscar - Nuevos
-    @Query(value = "SELECT * FROM solicitudes WHERE aprobada = null", nativeQuery = true)
+    @Query(value = "SELECT * FROM solicitudes WHERE aprobada IS NULL", nativeQuery = true)
     List<Solicitud> findSqlByNuevos();
 
     // Buscar - Aprobadas

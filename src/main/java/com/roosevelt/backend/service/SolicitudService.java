@@ -63,8 +63,10 @@ public class SolicitudService {
         if (solicitudDetails.getFecha_pub() != null) {
             solicitud.setFecha_pub(solicitudDetails.getFecha_pub());
         }
-        solicitud.setAprobada(solicitudDetails.isAprobada());
-        
+        if (solicitudDetails.getAprobada() != null) {
+            solicitud.setAprobada(solicitudDetails.getAprobada());
+        }
+
         return solicitudRepository.save(solicitud);
     }
     

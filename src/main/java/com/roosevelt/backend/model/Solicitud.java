@@ -40,5 +40,5 @@ public class Solicitud implements Serializable{
 
     @Schema(description = "Indica si la solicitud ha sido aprobada o no. Puede ser nulo mientras no se haya revisado.", example = "true")
     @Column(name = "aprobada", nullable = true, unique = false) 
-    private boolean aprobada;
+    private Boolean aprobada;
 }

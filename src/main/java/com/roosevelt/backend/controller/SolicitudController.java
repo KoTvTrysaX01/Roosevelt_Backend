@@ -64,8 +64,8 @@ public class SolicitudController {
         @ApiResponse(responseCode = "404", description = "solicitud no encontrado", content = @Content())
     })
    
-    @GetMapping("/{id}")
-    public ResponseEntity<Solicitud> detailsSolicitud(@PathVariable Integer id_usuario, Integer id_ruta) {
+    @GetMapping("/{id_usuario}/{id_ruta}")
+    public ResponseEntity<Solicitud> detailsSolicitud(@PathVariable int id_usuario, @PathVariable int id_ruta) {
         Solicitud solicitud = solicitudService.findById(id_usuario, id_ruta);
 
         if (solicitud == null) {
@@ -231,7 +231,9 @@ public class SolicitudController {
                 if (solicitudUpdate.getFecha_pub() != null) {
                     existingSolicitud.setFecha_pub(solicitudUpdate.getFecha_pub());
                 }
-                existingSolicitud.setAprobada(solicitudUpdate.isAprobada());
+                if (solicitudUpdate.getAprobada() != null) {
+                    existingSolicitud.setAprobada(solicitudUpdate.getAprobada());
+                }
                           
                 Solicitud usuPut = solicitudService.save(existingSolicitud);
 
@@ -258,8 +260,8 @@ public class SolicitudController {
     })
     // ***************************************************************************    
     
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, Object>> deletesolicitud(@PathVariable Integer id_usuario, Integer id_ruta) {
+    @DeleteMapping("/{id_usuario}/{id_ruta}")
+    public ResponseEntity<Map<String, Object>> deletesolicitud(@PathVariable int id_usuario,@PathVariable int id_ruta) {
 
         ResponseEntity<Map<String, Object>> response;
 

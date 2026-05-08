@@ -74,5 +74,5 @@ ALTER TABLE ajustes ALTER COLUMN id RESTART WITH (SELECT COALESCE(MAX(id), 0) + 
 
 
 INSERT INTO solicitudes (id_usuario, id_ruta, fecha_pub, aprobada) VALUES (1, 1, '1991-01-01', null);
-INSERT INTO solicitudes (id_usuario, id_ruta, fecha_pub, aprobada) VALUES (1, 2, '1991-01-01', null);
+INSERT INTO solicitudes (id_usuario, id_ruta, fecha_pub, aprobada) VALUES (1, 2, '1991-01-01', false);
 INSERT INTO solicitudes (id_usuario, id_ruta, fecha_pub, aprobada) VALUES (1, 3, '1991-01-01', null);

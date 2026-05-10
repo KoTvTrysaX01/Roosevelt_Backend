@@ -30,9 +30,9 @@ INSERT INTO usuarios (id, username, password, email,  email_sec, tel, fecha_nac,
 ALTER TABLE usuarios ALTER COLUMN id RESTART WITH (SELECT COALESCE(MAX(id), 0) + 1 FROM usuarios);
 
 
-INSERT INTO rutas (id, mapbox_json, nombre_ruta, descripcion, fecha_pub, likes_count, id_zona, id_usuario_autor) VALUES (1, '[[-0.4823535037734814, 38.34775791453754],[-0.47852430655979106, 38.34935405748996]]', 'Sun', '123', '1990-01-01', 3, 1, 1);
-INSERT INTO rutas (id, mapbox_json, nombre_ruta, descripcion, fecha_pub, likes_count, id_zona, id_usuario_autor) VALUES (2, '[[-0.4831974690308414, 38.347851174571275],[-0.477874741359102, 38.34961649271111]]', 'Moon', '456', '1990-01-01', 4, 1, 2);
-INSERT INTO rutas (id, mapbox_json, nombre_ruta, descripcion, fecha_pub, likes_count, id_zona, id_usuario_autor) VALUES (3, '[[-0.47680609397994544, 38.35213085816466],[-0.47774495913199644, 38.349784641734686]]', 'Ruta #3', '789', '1990-01-01', 5, 1, 2);
+INSERT INTO rutas (id, mapbox_json, nombre_ruta, descripcion, fecha_pub, likes_count, published, id_zona, id_usuario_autor) VALUES (1, '[[-0.4823535037734814, 38.34775791453754],[-0.47852430655979106, 38.34935405748996]]', 'Sun', '123', '1990-01-01', 3, false, 1, 1);
+INSERT INTO rutas (id, mapbox_json, nombre_ruta, descripcion, fecha_pub, likes_count, published, id_zona, id_usuario_autor) VALUES (2, '[[-0.4831974690308414, 38.347851174571275],[-0.477874741359102, 38.34961649271111]]', 'Moon', '456', '1990-01-01', 4, false, 1, 2);
+INSERT INTO rutas (id, mapbox_json, nombre_ruta, descripcion, fecha_pub, likes_count, published, id_zona, id_usuario_autor) VALUES (3, '[[-0.47680609397994544, 38.35213085816466],[-0.47774495913199644, 38.349784641734686]]', 'Ruta #3', '789', '1990-01-01', 5, false, 1, 2);
 
 ALTER TABLE rutas ALTER COLUMN id RESTART WITH (SELECT COALESCE(MAX(id), 0) + 1 FROM rutas);
 

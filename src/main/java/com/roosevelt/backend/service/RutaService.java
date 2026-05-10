@@ -88,6 +88,8 @@ public class RutaService {
         if (rutaDetails.getLikesCount() > 0) {
             ruta.setLikesCount(rutaDetails.getLikesCount());
         }
+        ruta.setPublished(rutaDetails.isPublished());
+
         if (rutaDetails.getZona() != null) {
             ruta.setZona(rutaDetails.getZona());
         }

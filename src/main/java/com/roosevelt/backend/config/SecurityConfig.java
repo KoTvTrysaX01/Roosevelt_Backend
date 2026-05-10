@@ -2,7 +2,6 @@ package com.roosevelt.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -65,34 +64,34 @@ public class SecurityConfig {
                         .disable())
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/").permitAll()
-                        .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/api-docs/**").permitAll()
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/roosevelt/**").permitAll() //
-                        .requestMatchers("/api/usuarios/**").permitAll()
-                        // .requestMatchers("/api/rutas/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/rutas").permitAll() // Ver todas las rutas es público
-                        .requestMatchers(HttpMethod.GET, "/api/zonas/**").permitAll()
-                        .requestMatchers("/api/zonas/**").hasRole("ADMIN")
-                        .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/mensajes/**").permitAll()
-                        // Para "Rutas Favoritas" (AppRouter: /fav-routes)
-                        .requestMatchers("/api/rutasfav/**").authenticated()
+                        // // .requestMatchers("/").permitAll()
+                        // // .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/api-docs/**").permitAll()
+                        // // .requestMatchers("/api/auth/**").permitAll()
+                        // // .requestMatchers("/roosevelt/**").permitAll() //
+                        // // .requestMatchers("/api/usuarios/**").permitAll()
+                        // // // .requestMatchers("/api/rutas/**").permitAll()
+                        // // .requestMatchers(HttpMethod.GET, "/api/rutas").permitAll() // Ver todas las rutas es público
+                        // // .requestMatchers(HttpMethod.GET, "/api/zonas/**").permitAll()
+                        // // .requestMatchers("/api/zonas/**").hasRole("ADMIN")
+                        // // .requestMatchers("/h2-console/**").permitAll()
+                        // // .requestMatchers(HttpMethod.POST, "/api/mensajes/**").permitAll()
+                        // // // Para "Rutas Favoritas" (AppRouter: /fav-routes)
+                        // // .requestMatchers("/api/rutasfav/**").authenticated()
 
-                        // Acciones que requieren estar logueado (Crear, Editar, Borrar)
-                        .requestMatchers(HttpMethod.POST, "/api/rutas/**", "/api/comentarios/**", "/api/likes/**")
-                        .authenticated()
-                        .requestMatchers(HttpMethod.PUT, "/api/rutas/**", "/api/usuarios/**").authenticated()
-                        .requestMatchers(HttpMethod.DELETE, "/api/rutas/**", "/api/likes/**").authenticated()
+                        // // // Acciones que requieren estar logueado (Crear, Editar, Borrar)
+                        // // .requestMatchers(HttpMethod.POST, "/api/rutas/**", "/api/comentarios/**", "/api/likes/**")
+                        // // .authenticated()
+                        // // .requestMatchers(HttpMethod.PUT, "/api/rutas/**", "/api/usuarios/**").authenticated()
+                        // // .requestMatchers(HttpMethod.DELETE, "/api/rutas/**", "/api/likes/**").authenticated()
 
-                        // RESTRICCIONES DE ADMIN
-                        .requestMatchers("/api/usuarios/admins").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/api/usuarios/**").hasRole("ADMIN")
+                        // // // RESTRICCIONES DE ADMIN
+                        // // .requestMatchers("/api/usuarios/admins").hasRole("ADMIN")
+                        // // .requestMatchers(HttpMethod.DELETE, "/api/usuarios/**").hasRole("ADMIN")
 
-                        .requestMatchers("/h2-console/**").permitAll() // Acceso identificado a consola H2
+                        // // .requestMatchers("/h2-console/**").permitAll() // Acceso identificado a consola H2
 
-                        .anyRequest().authenticated()
-                // .anyRequest().permitAll()
+                        // // .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 )
 
                 .sessionManagement(session -> session

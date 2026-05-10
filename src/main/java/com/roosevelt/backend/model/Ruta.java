@@ -73,6 +73,11 @@ public class Ruta implements Serializable{
     @Column(name = "likes_count", nullable = false, unique = true) 
     private int likesCount;
 
+    @Schema(description = "Ver si la ruta es pública", example = "false")
+    @NotNull(message = "Published no puede estar vacío")
+    @Column(name = "published", nullable = false, unique = false) 
+    private boolean published;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_zona", referencedColumnName = "id")
     @JsonIgnoreProperties("rutas")  

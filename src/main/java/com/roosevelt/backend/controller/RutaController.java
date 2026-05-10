@@ -287,6 +287,7 @@ public class RutaController {
                 if (rutaUpdate.getLikesCount() > 0) {
                     existingRuta.setLikesCount(rutaUpdate.getLikesCount());
                 }
+                existingRuta.setPublished(rutaUpdate.isPublished());
                 if (rutaUpdate.getZona() != null) {
                     existingRuta.setZona(rutaUpdate.getZona());
                 }

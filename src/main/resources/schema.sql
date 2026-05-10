@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS ajustes(
     foto                    VARCHAR(200) NOT NULL,
     recibir_noticias        BOOLEAN NOT NULL,
     recibir_notificaciones  BOOLEAN NOT NULL,  
-    id_usuario              INT,
+    id_usuario              INT UNIQUE,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE SET NULL
 );
 
@@ -54,8 +54,9 @@ CREATE TABLE IF NOT EXISTS rutas(
     nombre_ruta VARCHAR(50) NOT NULL,
     descripcion VARCHAR(200),
     fecha_pub   DATE,
-    likes_count  INT,
-    id_zona INT,
+    likes_count INT,
+    published   BOOLEAN,
+    id_zona     INT,
     id_usuario_autor INT,
     FOREIGN KEY (id_zona) REFERENCES zonas(id) ON DELETE SET NULL,
     FOREIGN KEY (id_usuario_autor) REFERENCES usuarios(id) ON DELETE SET NULL

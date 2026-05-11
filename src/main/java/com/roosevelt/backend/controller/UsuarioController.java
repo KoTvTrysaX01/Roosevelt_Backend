@@ -134,6 +134,8 @@ public class UsuarioController {
         } else {
 
             if (usuario.getUsername() == null || usuario.getUsername().trim().isEmpty()
+                    || usuario.getNombre() == null || usuario.getNombre().trim().isEmpty()
+                    || usuario.getApellido() == null || usuario.getApellido().trim().isEmpty()
                     || usuario.getEmail() == null || usuario.getEmail().trim().isEmpty()
                     || usuario.getPassword() == null || usuario.getPassword().trim().isEmpty()
                     || usuario.getEmail_sec() == null || usuario.getEmail_sec().trim().isEmpty()
@@ -142,7 +144,7 @@ public class UsuarioController {
                     ) {
 
                 Map<String, Object> map = new HashMap<>();
-                map.put("error", "Los campos 'name', 'email' y 'password' y otros son obligatorios");
+                map.put("error", "Los campos 'nombre', 'apellido', 'username', 'email' y 'password' y otros son obligatorios");
 
                 response = ResponseEntity
                         .status(HttpStatus.BAD_REQUEST)
@@ -203,6 +205,12 @@ public class UsuarioController {
             } else {
 
                 // Actualizar campos si están presentes
+                if (usuarioUpdate.getNombre() != null) {
+                    existingusuario.setNombre(usuarioUpdate.getNombre());
+                }
+                if (usuarioUpdate.getApellido() != null) {
+                    existingusuario.setApellido(usuarioUpdate.getApellido());
+                }
                 if (usuarioUpdate.getUsername() != null) {
                     existingusuario.setUsername(usuarioUpdate.getUsername());
                 }

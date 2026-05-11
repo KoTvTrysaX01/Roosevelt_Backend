@@ -1,13 +1,13 @@
 package com.roosevelt.backend.service;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.roosevelt.backend.model.Usuario;
 import com.roosevelt.backend.repository.UsuarioRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 
@@ -49,6 +49,12 @@ public class UsuarioService {
         Usuario usuario = userRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         
+        if (userUpdate.getNombre() != null) {
+            usuario.setNombre(userUpdate.getNombre());
+        }
+        if (userUpdate.getApellido() != null) {
+            usuario.setApellido(userUpdate.getApellido());
+        }
         if (userUpdate.getUsername() != null) {
             usuario.setUsername(userUpdate.getUsername());
         }

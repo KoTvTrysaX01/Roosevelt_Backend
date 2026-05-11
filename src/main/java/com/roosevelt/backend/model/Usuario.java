@@ -49,6 +49,16 @@ public class Usuario implements Serializable {
 
     @NotBlank(message = "El nombre es obligatorio")
     @Size(min=1, max=50, message = "El nombre no puede tener más de 50 caracteres")
+    @Column(name = "nombre", nullable = false, unique = false) 
+    private String nombre;
+
+    @NotBlank(message = "El apellido es obligatorio")
+    @Size(min=1, max=50, message = "El apellido no puede tener más de 50 caracteres")
+    @Column(name = "apellido", nullable = false, unique = false) 
+    private String apellido;
+
+    @NotBlank(message = "El nombre del usuario es obligatorio")
+    @Size(min=1, max=50, message = "El nombre no puede tener más de 50 caracteres")
     @Column(name = "username", nullable = false, unique = false) 
     private String username;
 

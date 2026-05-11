@@ -27,6 +27,8 @@ CREATE TABLE IF NOT EXISTS objetos (
 
 CREATE TABLE IF NOT EXISTS usuarios(
     id              Integer AUTO_INCREMENT PRIMARY KEY,
+    nombre          VARCHAR(50) NOT NULL,
+    apellido        VARCHAR(50) NOT NULL,
     username        VARCHAR(50) UNIQUE NOT NULL,
     password        VARCHAR(200) NOT NULL,
     email           VARCHAR(100) UNIQUE NOT NULL,

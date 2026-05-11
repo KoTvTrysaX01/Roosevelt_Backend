@@ -17,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -84,7 +85,7 @@ public class Usuario implements Serializable {
     @Column(name = "tel", nullable = false, unique = true) 
     private String tel;
 
-    @NotBlank(message = "La fecha es obligatorio")
+    @NotNull(message = "La fecha es obligatorio")
     @Column(name = "fecha_nac")
     private LocalDate fechaNac;
 

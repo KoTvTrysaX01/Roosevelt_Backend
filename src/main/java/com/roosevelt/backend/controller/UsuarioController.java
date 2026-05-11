@@ -220,6 +220,15 @@ public class UsuarioController {
                 if (usuarioUpdate.getPassword() != null) {
                     existingusuario.setPassword(usuarioUpdate.getPassword());
                 }
+                if (usuarioUpdate.getTel() != null) {
+                    existingusuario.setTel(usuarioUpdate.getTel());
+                }
+                if (usuarioUpdate.getFechaNac() != null) {
+                    existingusuario.setFechaNac(usuarioUpdate.getFechaNac());
+                }
+                if (usuarioUpdate.getEmail_sec() != null) {
+                    existingusuario.setEmail_sec(usuarioUpdate.getEmail_sec());
+                }
                 existingusuario.setAdministrador(usuarioUpdate.isAdministrador());
                           
                 Usuario usuPut = usuarioService.save(existingusuario);

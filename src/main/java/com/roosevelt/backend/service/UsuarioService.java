@@ -61,8 +61,17 @@ public class UsuarioService {
         if (userUpdate.getEmail() != null) {
             usuario.setEmail(userUpdate.getEmail());
         }
+        if (userUpdate.getEmail_sec() != null) {
+            usuario.setEmail_sec(userUpdate.getEmail_sec());
+        }
         if (userUpdate.getPassword() != null) {
             usuario.setPassword(userUpdate.getPassword());
+        }
+        if (userUpdate.getTel() != null) {
+            usuario.setTel(userUpdate.getTel());
+        }
+        if (userUpdate.getFechaNac() != null) {
+            usuario.setFechaNac(userUpdate.getFechaNac());
         }
         usuario.setAdministrador(userUpdate.isAdministrador());
         

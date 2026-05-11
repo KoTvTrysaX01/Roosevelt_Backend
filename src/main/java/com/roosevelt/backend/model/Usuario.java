@@ -79,10 +79,12 @@ public class Usuario implements Serializable {
     @Column(name = "administrador", nullable = false, unique = false) 
     private boolean administrador;
     
-    @Size(max = 15)
-    @Column(length = 15)
+    @NotBlank(message = "El tel es obligatorio")
+    @Size(min=1, max=15, message = "El tel no puede tener más de 15 caracteres")
+    @Column(name = "tel", nullable = false, unique = true) 
     private String tel;
 
+    @NotBlank(message = "La fecha es obligatorio")
     @Column(name = "fecha_nac")
     private LocalDate fechaNac;
 

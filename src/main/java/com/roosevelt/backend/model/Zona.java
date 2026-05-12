@@ -17,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -62,8 +63,7 @@ public class Zona implements Serializable{
     private String mapbox_json;
 
     @Schema(description = "La peligrosidad de la Zona", example = "Verde")
-    @NotBlank(message = "La peligrosidad nombre de la Zona es obligatorio")
-    @Size(min=1, max=20, message = "La peligrosidad de la Zona no puede tener más de 20 caracteres")
+    @NotNull(message = "La peligrosidad de la Zona es obligatorio")
     @Column(name = "peligrosidad", nullable = false, unique = false) 
     private PeligrosidadEnum peligrosidad;
 

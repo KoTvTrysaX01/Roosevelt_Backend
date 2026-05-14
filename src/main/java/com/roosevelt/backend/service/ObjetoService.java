@@ -78,8 +78,8 @@ public class ObjetoService {
         if (objetoDetails.getPeligrosidad() != null) {
             objeto.setPeligrosidad(objetoDetails.getPeligrosidad());
         }
-        if (objetoDetails.getImagen() != null) {
-            objeto.setImagen(objetoDetails.getImagen());
+        if (objetoDetails.getZona() != null) {
+            objeto.setZona(objetoDetails.getZona());
         }
         if (objetoDetails.getTipoObjeto() != null) {
             objeto.setTipoObjeto(objetoDetails.getTipoObjeto());

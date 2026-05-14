@@ -72,8 +72,6 @@ public class Usuario implements Serializable {
     @Column(name = "password", nullable = false, unique = false) 
     private String password;
 
-    @NotBlank(message = "El email es obligatorio")
-    @Size(min=1, max=100, message = "El email no puede tener más de 100 caracteres")
     @Column(name = "email_sec", nullable = false, unique = true) 
     private String email_sec;
    

@@ -20,20 +20,23 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 // LOMBOK
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@ToString(exclude = "zona")           // Excluir del toString para evitar recursividad
+@EqualsAndHashCode(exclude = "zona")  // Excluir de equals y hashCode para evitar recursividad
 // SWAGGER
 @Schema(description = "Modelo de Ruta", name="Ruta")
 
 // JPA
 @Entity
-@Table(name = "Rutas")
+@Table(name = "rutas")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Ruta implements Serializable{
 
@@ -48,7 +51,7 @@ public class Ruta implements Serializable{
     @Schema(description = "El nombre de la Ruta", example = "Cookies")
     @NotBlank(message = "El nombre de la Ruta es obligatorio")
     @Size(min=1, max=50, message = "El nombre de la Ruta no puede tener más de 50 caracteres")
-    @Column(name = "nombre_ruta", nullable = false, unique = true) 
+    @Column(name = "nombre_ruta", nullable = false, unique = false) 
     private String nombreRuta;
 
     @Schema(description = "JSON de MapBox de la Ruta", example = "Ruta de Cookies")
@@ -69,8 +72,7 @@ public class Ruta implements Serializable{
     private LocalDate fecha_pub;
 
     @Schema(description = "La cantidad de likes", example = "0")
-    @NotNull(message = "La cantidad de likes es obligatoria")
-    @Column(name = "likes_count", nullable = false, unique = true) 
+    @Column(name = "likes_count", nullable = true, unique = false) 
     private int likesCount;
 
     @Schema(description = "Ver si la ruta es pública", example = "false")

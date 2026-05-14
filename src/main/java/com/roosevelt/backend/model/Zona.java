@@ -58,7 +58,7 @@ public class Zona implements Serializable{
 
     @Schema(description = "JSON de MapBox de la Zona", example = "{coords: ...}}")
     @NotBlank(message = "JSON de MapBox de la Zona es obligatoria")
-    @Size(min=1, max=300, message = "JSON de MapBox de la Zona no puede tener más de 300 caracteres")
+    @Size(min=1, max=600, message = "JSON de MapBox de la Zona no puede tener más de 300 caracteres")
     @Column(name = "mapbox_json", nullable = false, unique = false) 
     private String mapbox_json;
 

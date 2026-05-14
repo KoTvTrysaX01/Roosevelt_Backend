@@ -165,6 +165,7 @@ public class ZonaController {
 
             if (zona.getNombre_zona() == null || zona.getNombre_zona().trim().isEmpty()
                     || zona.getMapbox_json() == null || zona.getMapbox_json().trim().isEmpty()
+                    || zona.getPeligrosidad() == null
                     ) {
 
                 Map<String, Object> map = new HashMap<>();
@@ -232,7 +233,10 @@ public class ZonaController {
                 }
                 if (zonaUpdate.getMapbox_json() != null) {
                     existingZona.setMapbox_json(zonaUpdate.getMapbox_json());
-                }                
+                }
+                if (zonaUpdate.getPeligrosidad() != null) {
+                    existingZona.setPeligrosidad(zonaUpdate.getPeligrosidad());
+                }                  
 
                 Zona zonaPut = zonaService.save(existingZona);
 

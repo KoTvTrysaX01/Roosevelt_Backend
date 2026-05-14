@@ -41,7 +41,7 @@ public class Ajustes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
-    private Integer id;
+    private int id;
 
     @Schema(description = "El tema del usuario", example = "Oscuro")
     @NotBlank(message = "El titulo del usuario es obligatorio")

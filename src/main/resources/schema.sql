@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS tipos_objeto (
 
 CREATE TABLE IF NOT EXISTS objetos (
     id              INT AUTO_INCREMENT PRIMARY KEY,
-    mapbox_json     VARCHAR(300) NOT NULL,
+    mapbox_json     VARCHAR(600) NOT NULL,
     nombre_objeto   VARCHAR(50) NOT NULL,
     descripcion     VARCHAR(200) NOT NULL,
     imagen          VARCHAR(50) NOT NULL,
@@ -33,9 +33,8 @@ CREATE TABLE IF NOT EXISTS usuarios(
     password        VARCHAR(200) NOT NULL,
     email           VARCHAR(100) UNIQUE NOT NULL,
     email_sec       VARCHAR(100),
-    tel             VARCHAR(15),
+    tel             VARCHAR(20),
     fecha_nac       DATE,
-    foto            VARCHAR(50),
     administrador   BOOLEAN NOT NULL
 );
 
@@ -52,7 +51,7 @@ CREATE TABLE IF NOT EXISTS ajustes(
 
 CREATE TABLE IF NOT EXISTS rutas(
     id          INT AUTO_INCREMENT PRIMARY KEY,
-    mapbox_json VARCHAR(300) NOT NULL,
+    mapbox_json VARCHAR(600) NOT NULL,
     nombre_ruta VARCHAR(50) NOT NULL,
     descripcion VARCHAR(200),
     fecha_pub   DATE,

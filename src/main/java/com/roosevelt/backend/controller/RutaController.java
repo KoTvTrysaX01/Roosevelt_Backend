@@ -208,7 +208,7 @@ public class RutaController {
                     || ruta.getDescripcion() == null || ruta.getDescripcion().trim().isEmpty()
                     || ruta.getMapboxJSON() == null || ruta.getMapboxJSON().trim().isEmpty()
                     || ruta.getFecha_pub() == null
-                    || ruta.getLikesCount() <= 0
+                    || ruta.getLikesCount() < 0
                     || ruta.getZona() == null
                     || ruta.getUsuario_autor() == null
                     ) {
@@ -284,7 +284,7 @@ public class RutaController {
                 if (rutaUpdate.getFecha_pub() != null) {
                     existingRuta.setFecha_pub(rutaUpdate.getFecha_pub());
                 }
-                if (rutaUpdate.getLikesCount() > 0) {
+                if (rutaUpdate.getLikesCount() >= 0) {
                     existingRuta.setLikesCount(rutaUpdate.getLikesCount());
                 }
                 existingRuta.setPublished(rutaUpdate.isPublished());

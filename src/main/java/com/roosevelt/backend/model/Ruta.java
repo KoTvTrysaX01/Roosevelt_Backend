@@ -87,6 +87,6 @@ public class Ruta implements Serializable{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario_autor", referencedColumnName = "id")
-    @JsonIgnoreProperties("rutas")  
+    @JsonIgnoreProperties("misRutas")  
     private Usuario usuario_autor;
 }

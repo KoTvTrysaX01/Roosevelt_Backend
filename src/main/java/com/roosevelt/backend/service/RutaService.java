@@ -55,6 +55,11 @@ public class RutaService {
     }
 
     @Transactional(readOnly = true) 
+    public Long countPublished() {
+        return rutaRepository.countPublishedSql();
+    }
+
+    @Transactional(readOnly = true) 
     public Long count() {
         return rutaRepository.count();
     }

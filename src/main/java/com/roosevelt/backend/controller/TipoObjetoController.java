@@ -97,7 +97,7 @@ public class TipoObjetoController {
         ResponseEntity<Map<String, Object>> response = null;
 
         Map<String, Object> map = new HashMap<>();
-        map.put("tipos_objeto", tipoObjetoService.count());
+        map.put("tiposobjeto", tipoObjetoService.count());
 
         response = ResponseEntity
                 .status(HttpStatus.OK)
@@ -106,6 +106,31 @@ public class TipoObjetoController {
         return response;
     }
 
+
+    // http://localhost:8080/roosevelt/api/tiposobjeto/masusado
+    // ***************************************************************************    
+    // SWAGGER
+    @Operation(summary = "Obtener TipoObjeto por ID",
+            description = "Retorna un TipoObjeto especifico basado en su ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "TipoObjeto encontrado"),
+        @ApiResponse(responseCode = "404", description = "TipoObjeto no encontrado", content = @Content())
+    })
+    // ***************************************************************************    
+    @GetMapping("/masusado")
+    public ResponseEntity<TipoObjeto> tipoMasUsado() {
+        TipoObjeto tipoObjeto = tipoObjetoService.findMasUsado();
+
+        if (tipoObjeto == null) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(null);  // 404 Not Found
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(tipoObjeto);
+        }
+    }
 
     // ***************************************************************************
     // ACTUALIZACIONES

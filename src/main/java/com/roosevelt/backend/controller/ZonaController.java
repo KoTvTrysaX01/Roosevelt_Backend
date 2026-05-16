@@ -123,7 +123,32 @@ public class ZonaController {
         ResponseEntity<Map<String, Object>> response = null;
 
         Map<String, Object> map = new HashMap<>();
-        map.put("Zonas", zonaService.count());
+        map.put("zonas", zonaService.count());
+
+        response = ResponseEntity
+                .status(HttpStatus.OK)
+                .body(map);
+
+        return response;
+    }
+
+
+    // http://localhost:8080/roosevelt/api/zonas/count
+    // ***************************************************************************    
+    // SWAGGER
+    @Operation(summary = "Obtener el número de Zonas existentes",
+            description = "Retorna la cantidad de Zonas")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Número de Zonas obtenidas con éxito", content = @Content())
+    })
+    // ***************************************************************************    
+    @GetMapping("/count/peligrosidad")
+    public ResponseEntity<Map<String, Object>> countPeligrosidad() {
+
+        ResponseEntity<Map<String, Object>> response = null;
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("zonas", zonaService.countPeligrosidad());
 
         response = ResponseEntity
                 .status(HttpStatus.OK)

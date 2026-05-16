@@ -35,6 +35,10 @@ public interface RutaRepository extends JpaRepository<Ruta, Integer> {
     // List<Ruta> findSqlByType(@Param("tipos") String tipos);
 
     // Buscar - Contar todos
+    @Query(value = "SELECT COUNT(*) as cantidad FROM rutas WHERE published = TRUE", nativeQuery = true)
+    Long countPublishedSql();  
+
+    // Buscar - Contar todos
     @Query(value = "SELECT COUNT(*) as cantidad FROM rutas", nativeQuery = true)
     Long countSql();    
 

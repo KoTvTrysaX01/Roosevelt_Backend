@@ -49,6 +49,18 @@ public class AjustesService {
     public Long count() {
         return ajustesRepository.count();
     }
+
+
+    @Transactional(readOnly = true) 
+    public Long countNoticias() {
+        return ajustesRepository.countNoticiasSql();
+    }
+
+
+    @Transactional(readOnly = true) 
+    public Long countNotificaciones() {
+        return ajustesRepository.countNotificacionesSql();
+    }
     
     // ************************
     // ACTUALIZACIONES

@@ -48,6 +48,11 @@ public class ObjetoService {
     public Long count() {
         return objetoRepository.count();
     }
+
+    @Transactional(readOnly = true) 
+    public Long countPeligrosidad() {
+        return objetoRepository.countPeligrosidadSql();
+    }
     
     // ************************
     // ACTUALIZACIONES

@@ -33,4 +33,8 @@ public interface ObjetoRepository extends JpaRepository<Objeto, Integer> {
     // Buscar - Contar todos
     @Query(value = "SELECT COUNT(*) as cantidad FROM objetos", nativeQuery = true)
     Long countSql();    
+
+    // Buscar - Contar todos
+    @Query(value = "SELECT COUNT(*) as cantidad FROM objetos WHERE peligrosidad = 2", nativeQuery = true)
+    Long countPeligrosidadSql();   
 }

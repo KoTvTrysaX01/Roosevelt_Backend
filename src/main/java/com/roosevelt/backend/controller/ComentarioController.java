@@ -122,7 +122,7 @@ public class ComentarioController {
         ResponseEntity<Map<String, Object>> response = null;
 
         Map<String, Object> map = new HashMap<>();
-        map.put("Comentarios", comentarioService.count());
+        map.put("comentarios", comentarioService.count());
 
         response = ResponseEntity
                 .status(HttpStatus.OK)

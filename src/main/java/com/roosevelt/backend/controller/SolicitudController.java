@@ -124,7 +124,7 @@ public class SolicitudController {
         ResponseEntity<Map<String, Object>> response = null;
 
         Map<String, Object> map = new HashMap<>();
-        map.put("solicituds", solicitudService.count());
+        map.put("solicitudes", solicitudService.count());
 
         response = ResponseEntity
                 .status(HttpStatus.OK)

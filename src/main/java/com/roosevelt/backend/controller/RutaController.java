@@ -162,7 +162,7 @@ public class RutaController {
         ResponseEntity<Map<String, Object>> response = null;
 
         Map<String, Object> map = new HashMap<>();
-        map.put("Rutas", rutaService.count());
+        map.put("rutas", rutaService.count());
 
         response = ResponseEntity
                 .status(HttpStatus.OK)
@@ -171,6 +171,29 @@ public class RutaController {
         return response;
     }
 
+    // http://localhost:8080/roosevelt/api/rutas/count
+    // ***************************************************************************    
+    // SWAGGER
+    @Operation(summary = "Obtener el número de Rutas existentes",
+            description = "Retorna la cantidad de Rutas")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Número de Rutas obtenidas con éxito", content = @Content())
+    })
+    // ***************************************************************************    
+    @GetMapping("/count/published")
+    public ResponseEntity<Map<String, Object>> countPublishedRutas() {
+
+        ResponseEntity<Map<String, Object>> response = null;
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("rutas", rutaService.countPublished());
+
+        response = ResponseEntity
+                .status(HttpStatus.OK)
+                .body(map);
+
+        return response;
+    }
     
 
 

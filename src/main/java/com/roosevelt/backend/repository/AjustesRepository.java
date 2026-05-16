@@ -33,4 +33,10 @@ public interface AjustesRepository extends JpaRepository<Ajustes, Integer> {
     // Buscar - Contar todos
     @Query(value = "SELECT COUNT(*) as cantidad FROM ajustes", nativeQuery = true)
     Long countSql();    
+
+    @Query(value = "SELECT COUNT(*) as cantidad FROM ajustes WHERE recibir_noticias = TRUE", nativeQuery = true)
+    Long countNoticiasSql();
+
+    @Query(value = "SELECT COUNT(*) as cantidad FROM ajustes WHERE recibir_notificaciones = TRUE", nativeQuery = true)
+    Long countNotificacionesSql();
 }

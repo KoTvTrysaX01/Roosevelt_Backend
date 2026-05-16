@@ -34,6 +34,13 @@ public class TipoObjetoService {
         return tipoObjetoRepository.count();
     }
 
+
+    @Transactional(readOnly = true)
+    public TipoObjeto findMasUsado() {
+        return tipoObjetoRepository.findSqlMasUsado();
+        
+    }
+
     // ************************
     // ACTUALIZACIONES
     // ************************

@@ -1,6 +1,7 @@
 package com.roosevelt.backend.repository;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -46,6 +47,16 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query(value = "SELECT COUNT(*) as cantidad FROM usuarios", nativeQuery = true)
     Long countSql();
 
+        // Consulta con SQL 
+    @Query(value = "SELECT COUNT(*) as cantidad FROM usuarios WHERE administrador = TRUE", nativeQuery = true)
+    Long countAdmins();
+
+    @Query(value = "SELECT datediff(year,fecha_nac,CURRENT_DATE) as age from usuarios", nativeQuery = true)
+    List<String> countAgesSql();
+
+
+
+    // I've got no idea what this is
     boolean existsById(Integer id);
 
     void deleteById(Integer id);

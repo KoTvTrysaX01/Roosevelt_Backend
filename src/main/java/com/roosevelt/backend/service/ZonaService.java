@@ -44,6 +44,11 @@ public class ZonaService {
         return zonaRepository.count();
     }
 
+    @Transactional(readOnly = true) 
+    public Long countPeligrosidad() {
+        return zonaRepository.countPeligrosidadSql();
+    }
+
     // ************************
     // ACTUALIZACIONES
     // ************************ 

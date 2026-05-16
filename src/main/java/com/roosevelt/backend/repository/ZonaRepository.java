@@ -29,4 +29,8 @@ public interface ZonaRepository extends JpaRepository<Zona, Integer> {
     // Buscar - Contar todos
     @Query(value = "SELECT COUNT(*) as cantidad FROM zonas", nativeQuery = true)
     Long countSql();    
+
+    // Buscar - Contar todos
+    @Query(value = "SELECT COUNT(*) as cantidad FROM zonas WHERE peligrosidad = 2", nativeQuery = true)
+    Long countPeligrosidadSql();    
 }

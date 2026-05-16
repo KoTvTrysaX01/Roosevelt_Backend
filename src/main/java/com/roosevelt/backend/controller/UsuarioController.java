@@ -102,6 +102,48 @@ public class UsuarioController {
         return response;
     }
 
+        // http://localhost:8080/roosevelt/api/usuarios/count
+     // SWAGGER
+    @Operation(summary = "Obtener el número de usuarios existentes",
+            description = "Retorna la cantidad de usuarios")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Número de usuarios obtenidos con éxito", content = @Content())
+    })
+    // ***************************************************************************    
+    
+    @GetMapping("/count/admins")
+    public ResponseEntity<Map<String, Object>> countAdmins() {
+
+        ResponseEntity<Map<String, Object>> response = null;
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("usuarios", usuarioService.countAdmins());
+
+        response = ResponseEntity
+                .status(HttpStatus.OK)
+                .body(map);
+
+        return response;
+    }
+
+
+    // http://localhost:8080/roosevelt/api/usuarios/count/ages
+     // SWAGGER
+    @Operation(summary = "Obtener el número de usuarios existentes",
+            description = "Retorna la cantidad de usuarios")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Número de usuarios obtenidos con éxito", content = @Content())
+    })
+    // ***************************************************************************    
+    
+    @GetMapping("/count/ages")
+    public ResponseEntity<List<String>> countUsersAges() {
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(usuarioService.countAges());
+    }
+
     // ***************************************************************************
     // ACTUALIZACIONES
     // ***************************************************************************

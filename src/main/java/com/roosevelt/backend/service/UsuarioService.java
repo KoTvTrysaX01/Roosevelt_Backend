@@ -33,6 +33,17 @@ public class UsuarioService {
     @Transactional(readOnly = true) 
     public Long count() {
         return userRepository.count();
+    } 
+
+
+    @Transactional(readOnly = true) 
+    public Long countAdmins() {
+        return userRepository.countAdmins();
+    } 
+    
+    @Transactional(readOnly = true) 
+    public List<String> countAges() {
+        return userRepository.countAgesSql();
     }    
     
     // ************************

@@ -145,7 +145,31 @@ public class ObjetoController {
         ResponseEntity<Map<String, Object>> response = null;
 
         Map<String, Object> map = new HashMap<>();
-        map.put("Objetos", objetoService.count());
+        map.put("objetos", objetoService.count());
+
+        response = ResponseEntity
+                .status(HttpStatus.OK)
+                .body(map);
+
+        return response;
+    }
+
+    // http://localhost:8080/roosevelt/api/objetos/count
+    // ***************************************************************************    
+    // SWAGGER
+    @Operation(summary = "Obtener el número de Objetos existentes",
+            description = "Retorna la cantidad de Objetos")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Número de Objetos obtenidos con éxito", content = @Content())
+    })
+    // ***************************************************************************    
+    @GetMapping("/count/peligrosidad")
+    public ResponseEntity<Map<String, Object>> countPeligrosidad() {
+
+        ResponseEntity<Map<String, Object>> response = null;
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("objetos", objetoService.countPeligrosidad());
 
         response = ResponseEntity
                 .status(HttpStatus.OK)

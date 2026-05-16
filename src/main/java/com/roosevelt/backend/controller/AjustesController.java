@@ -147,6 +147,53 @@ public class AjustesController {
         return response;
     }
 
+
+    // http://localhost:8080/roosevelt/api/ajustess/count
+    // ***************************************************************************
+    // SWAGGER
+    @Operation(summary = "Obtener el número de ususarios que reciben noticias", description = "Retorna la cantidad de ususarios que reciben noticias")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Número de ususarios que reciben noticias obtenido con éxito", content = @Content())
+    })
+    // ***************************************************************************
+    @GetMapping("/count/noticias")
+    public ResponseEntity<Map<String, Object>> countNoticias() {
+
+        ResponseEntity<Map<String, Object>> response = null;
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("cantidad_noticias", ajustesService.countNoticias());
+
+        response = ResponseEntity
+                .status(HttpStatus.OK)
+                .body(map);
+
+        return response;
+    }
+
+    // http://localhost:8080/roosevelt/api/ajustess/count
+    // ***************************************************************************
+    // SWAGGER
+    @Operation(summary = "Obtener el número de ususarios que reciben notificaciones", description = "Retorna la cantidad de ususarios que reciben notificaciones")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Número de ususarios que reciben notificaciones obtenido con éxito", content = @Content())
+    })
+    // ***************************************************************************
+    @GetMapping("/count/notificaciones")
+    public ResponseEntity<Map<String, Object>> countNotificaciones() {
+
+        ResponseEntity<Map<String, Object>> response = null;
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("cantidad_notificaciones", ajustesService.countNotificaciones());
+
+        response = ResponseEntity
+                .status(HttpStatus.OK)
+                .body(map);
+
+        return response;
+    }
+
     // ***************************************************************************
     // ACTUALIZACIONES
     // ***************************************************************************
